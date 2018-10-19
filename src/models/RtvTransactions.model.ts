@@ -1,4 +1,5 @@
-import {Entity, model, property} from '@loopback/repository'
+import {RtvTransArticles} from './RtvTransArticles.model';
+import {Entity, model, property, hasMany} from '@loopback/repository'
 
 @model({
 	name: "rtv_transactions"
@@ -55,7 +56,7 @@ export class RtvTransactions extends Entity {
 			nullable: "YES",
 		}
 	})
-	ubicacioId: Number;
+	ubicationId: Number;
 
 	@property({
 		type: Number,
@@ -72,7 +73,7 @@ export class RtvTransactions extends Entity {
 			nullable: "YES",
 		}
 	})
-	clienteId: Number;
+	clientId: Number;
 
 	@property({
 		type: Number,
@@ -362,6 +363,8 @@ export class RtvTransactions extends Entity {
 		}
 	})
 	subsidyId: Number;
+
+  @hasMany(() => RtvTransArticles, {keyTo: 'transactionId'}) RtvTransArticles?: RtvTransArticles[];
 
 	constructor(data?: Partial<RtvTransactions>) {
 		super(data);

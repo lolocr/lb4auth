@@ -3,7 +3,7 @@ import {Entity, model, property} from '@loopback/repository'
 @model({
 	name: "articles"
 })
-export class Articles extends Entity {
+export class Article extends Entity {
 
 	@property({
 		type: Number,
@@ -312,7 +312,7 @@ export class Articles extends Entity {
 	})
 	empresaId: Number;
 
-	constructor(data?: Partial<Articles>) {
+	constructor(data?: Partial<Article>) {
 		super(data);
 	}
 }
